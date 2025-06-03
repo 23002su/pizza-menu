@@ -95,30 +95,33 @@ function Menu() {
   );
 }
 
-function Pizza(pizzaObj) {
+function Pizza(props) {
+  console.log(props.pizzaObj);
   return (
-    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
-      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+    <li className={`pizza ${props.pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{pizzaObj.name}</h3>
-        <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>
+          {props.pizzaObj.soldOut ? "SOLD OUT" : props.pizzaObj.price}
+        </span>
       </div>
     </li>
   );
 }
 
 function Footer() {
-  const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 22;
+  // const hour = new Date().getHours();
+  // const openHour = 12;
+  // const closeHour = 22;
   //   const isOpen = hour >= openHour && hour <= closeHour;
 
   //   if (hour >= openHour && hour <= closeHour) alert("we're currently open !");
   //   else alert("sorry we're closed ");
 
   return (
-    <footer clasName="footer">
+    <footer className="footer">
       {new Date().toLocaleTimeString()} we're currently open
     </footer>
   );
